@@ -1,2 +1,2 @@
-# Taller Typescript2
+# Taller Typescript1
 Camilo Castilla 202122138

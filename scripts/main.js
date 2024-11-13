@@ -1,18 +1,12 @@
 import { series } from './data.js';
-import { Serie } from './serie.js';
-
 document.addEventListener("DOMContentLoaded", () => {
     const seriesTableBody = document.querySelector("#seriesTable tbody");
-    const seriesDetail = document.getElementById("seriesDetail") as HTMLElement;
-    const seriesImage = document.getElementById("seriesImage") as HTMLImageElement;
-    const seriesTitle = document.getElementById("seriesTitle") as HTMLElement;
-    const seriesDescription = document.getElementById("seriesDescription") as HTMLElement;
-    const seriesLink = document.getElementById("seriesLink") as HTMLAnchorElement;
-
-    
-
-    
-    const seriesList: Serie[] = series;
+    const seriesDetail = document.getElementById("seriesDetail");
+    const seriesImage = document.getElementById("seriesImage");
+    const seriesTitle = document.getElementById("seriesTitle");
+    const seriesDescription = document.getElementById("seriesDescription");
+    const seriesLink = document.getElementById("seriesLink");
+    const seriesList = series;
     seriesList.forEach(series => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -21,25 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${series.channel}</td>
             <td>${series.seasons}</td>
         `;
-        seriesTableBody?.appendChild(row);
+        seriesTableBody === null || seriesTableBody === void 0 ? void 0 : seriesTableBody.appendChild(row);
     });
-
-    
-    seriesTableBody?.addEventListener("click", (event) => {
-        const target = event.target as HTMLElement;
+    seriesTableBody === null || seriesTableBody === void 0 ? void 0 : seriesTableBody.addEventListener("click", (event) => {
+        const target = event.target;
         if (target.classList.contains("series-link")) {
             event.preventDefault();
             const seriesId = target.getAttribute("data-id");
             const series = seriesList.find(s => s.id.toString() === seriesId);
-
             if (series) {
-                
                 seriesTitle.innerText = series.name;
                 seriesDescription.innerText = series.description;
                 seriesLink.href = series.link;
-                seriesImage.src = series.image; 
-
-                
+                seriesImage.src = series.image;
                 seriesDetail.style.display = "block";
             }
         }

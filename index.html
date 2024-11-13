@@ -5,26 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Series List</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mt-4">
         <h1 class="text-center">TV Series</h1>
-        <table class="table table-striped" id="seriesTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Channel</th>
-                    <th>Seasons</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-            </tbody>
-        </table>
+        <div class="row">
+            <!-- Series List Table -->
+            <div class="col-md-8">
+                <table class="table table-striped" id="seriesTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Channel</th>
+                            <th>Seasons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be dynamically populated -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Series Detail Card -->
+            <div class="col-md-4">
+                <div id="seriesDetail" class="card" style="display: none;">
+                    <img src="" class="card-img-top" alt="Series Image" id="seriesImage">
+                    <div class="card-body">
+                        <h5 class="card-title" id="seriesTitle"></h5>
+                        <p class="card-text" id="seriesDescription"></p>
+                        <a href="#" class="btn btn-primary" id="seriesLink">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./main.js"></script>
+    <script type='module' src="./scripts/main.js"></script>
 </body>
 </html>
